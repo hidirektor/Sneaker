@@ -479,8 +479,9 @@ class Sneaker(private var context: Context) : View.OnClickListener, LifecycleObs
      * @param parent
      */
     private fun removeExistingSneakerView(parent: ViewGroup) {
-        parent.findViewById<LinearLayout>(R.id.mainLayout)?.let {
-            removeView(it, false)
+        val existingView = parent.findViewById<ViewGroup>(R.id.mainLayout)
+        if (existingView != null) {
+            removeView(existingView, false)
         }
     }
 
